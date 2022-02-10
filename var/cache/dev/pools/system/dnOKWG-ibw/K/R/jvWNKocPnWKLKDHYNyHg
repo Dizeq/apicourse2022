@@ -1,0 +1,66 @@
+<?php //App%255CEntity%255CCustomer
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiFilter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiFilter')),
+        clone $p['ApiPlatform\\Core\\Annotation\\ApiFilter'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'repositoryClass' => [
+                'App\\Repository\\CustomerRepository',
+            ],
+            'collectionOperations' => [
+                1 => [
+                    'GET',
+                    'POST',
+                ],
+            ],
+            'itemOperations' => [
+                1 => [
+                    'GET',
+                    'PUT',
+                    'DELETE',
+                    'PATCH',
+                ],
+            ],
+            'subresourceOperations' => [
+                1 => [
+                    'invoices_get_subresource' => [
+                        'path' => '/customers/{id}/invoices',
+                    ],
+                ],
+            ],
+            'attributes' => [
+                1 => [
+                    'normalization_context' => [
+                        'groups' => [
+                            'customers_read',
+                        ],
+                    ],
+                ],
+            ],
+            'filterClass' => [
+                2 => 'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Filter\\SearchFilter',
+                'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Filter\\OrderFilter',
+            ],
+            'properties' => [
+                2 => [
+                    'firstName' => 'partial',
+                    'lastName',
+                    'company',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+        $o[3],
+    ],
+    []
+); }];

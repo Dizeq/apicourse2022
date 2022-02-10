@@ -1,0 +1,77 @@
+<?php //App%255CEntity%255CInvoice
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiResource')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiFilter'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Annotation\\ApiFilter')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'repositoryClass' => [
+                'App\\Repository\\InvoiceRepository',
+            ],
+            'itemOperations' => [
+                1 => [
+                    'GET',
+                    'PUT',
+                    'DELETE',
+                    'PATCH',
+                    'increment' => [
+                        'method' => 'post',
+                        'path' => '/invoices/{id}/increment',
+                        'controller' => 'App\\Controller\\InvoiceIncrementationController',
+                        'openapi_context' => [
+                            'summary' => 'Incrément une facture',
+                            'description' => 'Incrémente le chrono d\'une facture donnée',
+                        ],
+                    ],
+                ],
+            ],
+            'subresourceOperations' => [
+                1 => [
+                    'api_customers_invoices_get_subresource' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'invoices_subresource',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'attributes' => [
+                1 => [
+                    'pagination_enabled' => true,
+                    'pagination_items_per_page' => 20,
+                    'order' => [
+                        'sentAt' => 'desc',
+                    ],
+                    'normalization_context' => [
+                        'groups' => [
+                            'invoices_read',
+                        ],
+                    ],
+                    'denormalization_context' => [
+                        'disable_type_enforcement' => true,
+                    ],
+                ],
+            ],
+            'filterClass' => [
+                2 => 'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Filter\\OrderFilter',
+            ],
+            'properties' => [
+                2 => [
+                    'amount',
+                    'sentAt',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];
